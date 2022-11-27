@@ -1,0 +1,20 @@
+POST https://localhost:3000/add-todo/
+Content-Type: application/json
+
+{
+  "text": "Buy milk"
+}
+
+###
+GET https://localhost:3000/get-todo/
+
+###
+PUT https://localhost:3000/update-todo/637b1e28a2f9e24171979c3f
+Content-Type: application/json
+
+{ 
+    "text": "Buy apples"
+}
+
+###
+DELETE https://localhost:3000/delete-todo/
