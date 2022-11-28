@@ -5,6 +5,7 @@ import https from "https";
 import fs from "fs";
 import config from "../client/src/config/main.js";
 import router from "./routes/ToDoRoute.js";
+
 const app = express();
 
 var privateKey  = fs.readFileSync('certs/localhost.key', 'utf8');
@@ -18,6 +19,11 @@ mongoose
     })
     .then(() =>{
         console.log("Mongodb Connected...")
+        child_process.exec('node servers/devServer.js ' + API_SERVER_PORT, (err, stdout, stderr) => {  
+            if (err) {  
+              throw new Error('Proxy server failed to run.', err);  
+            }  
+          })
         server();
     })
     .catch((err) => console.error(err));
