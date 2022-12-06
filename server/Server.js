@@ -19,11 +19,6 @@ mongoose
     })
     .then(() =>{
         console.log("Mongodb Connected...")
-        child_process.exec('node servers/devServer.js ' + API_SERVER_PORT, (err, stdout, stderr) => {  
-            if (err) {  
-              throw new Error('Proxy server failed to run.', err);  
-            }  
-          })
         server();
     })
     .catch((err) => console.error(err));
